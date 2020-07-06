@@ -1,12 +1,12 @@
 <p align="center">	
-	<h1 align="center">Desinfete o vírus :biohazard:</h1>
+	<h1 align="center">Desinfete o vírus</h1>
 </p>
 <p align="center">
     <img src="assets/img/logo.png" width="200" alt="Logo">
 </p>
-    <p align="center"><em>Elimine desinfetando todos os vírus  usando álcool em gel.</em></p>
+    <p align="center"><em>Elimine desinfetando todos os vírus usando álcool em gel.</em></p>
     <p align="center">
-        <img src="https://img.shields.io/badge/Jeferson%20Lucas-Disinfect%the%20virus-green" alt="Project">
+        <img src="https://img.shields.io/badge/JefersonLucas-Disinfect%20the%20virus-green" alt="Project">
         <img src="https://img.shields.io/github/license/JefersonLucas/disinfect-the-virus" alt="License">
   	</p>
 </p>
