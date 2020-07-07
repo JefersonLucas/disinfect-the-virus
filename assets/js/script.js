@@ -1,46 +1,36 @@
 /*!
  * Jeferson Luckas - Disinfect the virus
- * 
+ *
  * Copyright (c) 2020 Jeferson Luckas
  * Released under the MIT license
  * https://github.com/JefersonLucas/disinfect-the-virus/blob/master/LICENSE
  *
  */
 
-// Altura e largura do jogo
+// Circulos animados
+ 
+const ulCirculos = document.querySelector("ul.circulos");
 
-let altura = 0;
-let largura = 0;
+for (let i = 0; i < 11; i++) {
 
-let ajustaTamanhoPalcoJogo = function() {
-	altura = window.innerHeight;
-	largura = window.innerWidth;
+	const li = document.createElement("li");
+
+	const random = (min, max) =>  Math.random() * (max - min) + min;
+
+	const tamanho = Math.floor(random(10, 120));
+	const posicao = random(1,80);
+	const delay = random(5, 0.1);
+	const duracao = random(24, 12);
+
+	li.style.width = `${tamanho}px`;
+	li.style.height = `${tamanho}px`;
+	li.style.bottom = `-${tamanho}px`;
+
+	li.style.left = `${posicao}%`;
+	li.style.animationDelay = `${delay}s`;
+	li.style.animationDuration = `${duracao}s`;
+	li.style.animationTimingFunction = `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()},${Math.random()})`;
+
+	ulCirculos.appendChild(li);
+	
 }
-
-// Posição randômica
-
-function posicaoRandomica() {
-
-	var posicaoX = Math.floor(Math.random() * largura) - 90;
-	var posicaoY = Math.floor(Math.random() * altura) - 90;
-
-	posicaoX = posicaoX < 0 ? 0 : posicaoX;
-	posicaoY = posicaoY < 0 ? 0 : posicaoY;
-
-	// Criar o elemento HTML
-
-	var virus = document.createElement("img");
-
-	virus.src = "assets/img/virus.png";
-
-	virus.className = "virus";
-
-	virus.style.left = posicaoX+"px";
-	virus.style.top = posicaoY+"px";
-	virus.style.position = "absolute";
-
-	document.body.appendChild(virus);
-}
-
-window.onresize = ajustaTamanhoPalcoJogo();
-posicaoRandomica();

@@ -4,7 +4,7 @@
 <p align="center">
     <img src="assets/img/logo.png" width="200" alt="Logo">
 </p>
-    <p align="center"><em>Elimine desinfetando todos os vírus usando álcool em gel.</em></p>
+    <p align="center"><em>Desinfete e elimine todos os vírus.</em></p>
     <p align="center">
         <img src="https://img.shields.io/badge/JefersonLucas-Disinfect%20the%20virus-green" alt="Project">
         <img src="https://img.shields.io/github/license/JefersonLucas/disinfect-the-virus" alt="License">
@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-	<img src="assets/img/capture.png" alt="Capture">
+	<img src="assets/img/capture.png" alt="Game">
 </p>
 
 ## Traduções :triangular_flag_on_post:
@@ -61,9 +61,10 @@ Veja aqui o a página do projeto implantado por @github-pages [ver implantação
 
 ## Construído com :building_construction:
 
+* [Bootstrap](https://getbootstrap.com/) - Framework front end.
+* [Dafont](https://www.dafont.com/virus-2.font) - Banco de fontes.
+* [Font Awesome](https://fontawesome.com/) - Framework de pacote de ícones.
 * [pngtree](https://pngtree.com/so/micróbios-bacterianos) - Banco de imagens.
-* [dafont](https://www.dafont.com/virus-2.font) - Banco de fontes.
-
 
 ## Contribuindo :up:
 
