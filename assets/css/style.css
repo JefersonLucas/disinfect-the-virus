@@ -7,7 +7,7 @@
  *
  */
 
-/* Estilo do jogo */
+/* Estilo do palco do jogo */
 
 * {
 	margin: 0;
@@ -24,11 +24,22 @@ body {
 	overflow: hidden;
 }
 
-/* Vírus */
+/* Tamanho */
 
-.virus {
+.tamanho-1 {
 	width: 50px;
 	height: 50px;
+	animation: virus 1s;
+}
+
+.tamanho-2 {
+	width: 70px;
+	height: 70px;
+	animation: virus 1s;
+}
+.tamanho-3 {
+	width: 90px;
+	height: 90px;
 	animation: virus 1s;
 }
 
@@ -40,6 +51,7 @@ body {
 		opacity: 1;
 	}
 }
+
 /* Círculos Animados */
 
 .circulos li {
@@ -62,7 +74,7 @@ body {
 		opacity: 1;
 	}
 	100% {
-		opacity: 0;
 		transform: translateY(-1000px);
+		opacity: 0;
 	}
 }

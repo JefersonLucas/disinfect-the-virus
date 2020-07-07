@@ -11,7 +11,7 @@
  
 const ulCirculos = document.querySelector("ul.circulos");
 
-for (let i = 0; i < 11; i++) {
+for (let i = 0; i < 15; i++) {
 
 	const li = document.createElement("li");
 
@@ -31,6 +31,5 @@ for (let i = 0; i < 11; i++) {
 	li.style.animationDuration = `${duracao}s`;
 	li.style.animationTimingFunction = `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()},${Math.random()})`;
 
-	ulCirculos.appendChild(li);
-	
+	ulCirculos.appendChild(li);	
 }
