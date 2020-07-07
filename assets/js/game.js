@@ -20,6 +20,12 @@ let ajustaTamanhoPalcoJogo = function() {
 
 function posicaoRandomica() {
 
+	// Remover o vírus anterior
+	
+	if(document.getElementById("virus")) {
+		document.getElementById("virus").remove();
+	}
+
 	let posicaoX = Math.floor(Math.random() * largura) - 90;
 	let posicaoY = Math.floor(Math.random() * altura) - 90;
 
@@ -32,15 +38,16 @@ function posicaoRandomica() {
 
 	const virus = document.createElement("img");
 	virus.src = VirusAleatorio();
-	virus.className = tamanhoAleatorio();
+	virus.className = tamanhoAleatorio() +" "+ ladoAleatorio();
 	virus.style.left = `${posicaoX}px`;
 	virus.style.top = `${posicaoY}px`;
 	virus.style.position = "absolute";
-	
+	virus.id = "virus";
+
 	document.body.appendChild(virus);
 }
 
-// Tamanho randômico
+// Tamanho aleatório
 
 function tamanhoAleatorio() {
 
@@ -56,7 +63,21 @@ function tamanhoAleatorio() {
 	}
 }
 
-// Vírus randômico
+// Lado aleatório
+
+function ladoAleatorio() {
+
+	var classe = Math.floor(Math.random() * 2)
+
+	switch(classe) {
+		case 0:
+			return "lado-A";
+		case 1:
+			return "lado-B";
+	}
+}
+
+// Vírus aleatório
 
 function VirusAleatorio() {	
 
@@ -69,11 +90,17 @@ function VirusAleatorio() {
 			return "assets/img/virus-02.png";
 		case 2:
 			return "assets/img/virus-03.png";
-		case 3:			
+		case 3:
 			return "assets/img/virus-04.png";
 	}
 }
 
+// Funções chamadas
+
 window.onresize = ajustaTamanhoPalcoJogo();
 
-posicaoRandomica();
+// Intervalo de tempo para a chamada da função
+
+setInterval(function() {
+	posicaoRandomica();
+}, 1000);
