@@ -125,3 +125,20 @@ option {
 		transform: translateY(-1000px);
 	}
 }
+
+/* Crônometro */
+.coracao {
+	color: #f44336;
+}
+.cronometro {
+	animation: cronometro 1s infinite;
+}
+
+@keyframes cronometro {
+	0% {
+	opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

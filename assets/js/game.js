@@ -11,6 +11,7 @@
 
 let altura = largura = 0;
 let vidas = 1;
+let tempo = 30;
 
 let ajustaTamanhoPalcoJogo = function() {
 	altura = window.innerHeight;
@@ -31,7 +32,7 @@ function posicaoRandomica() {
 			window.location.href = "game-over.html";
 		}
 		else {
-			document.getElementById("v" + vidas).className = "far fa-heart fa-lg";
+			document.getElementById("v" + vidas).className = "coracao far fa-heart fa-lg";
 			vidas++;
 		}
 	}
@@ -109,12 +110,30 @@ function VirusAleatorio() {
 	}
 }
 
-// Funções chamadas
+// Cronômetro
 
-window.onresize = ajustaTamanhoPalcoJogo();
+var cronometro = setInterval(function() {
+	if (tempo < 0) {
+		clearInterval(cronometro);
+		clearInterval(criaVirus);
+		window.location.href = "you-win.html";
+	}
+	else {
+		if (tempo < 10) {
+			tempo = "0"+tempo;
+			document.getElementById("cronometro").style.color = "#f44336";
+		}
+		document.getElementById("tempo").innerHTML = tempo;
+	}
+	tempo--;
+}, 1000);
 
 // Intervalo de tempo para a chamada da função
 
-setInterval(function() {
+var criaVirus = setInterval(function() {
 	posicaoRandomica();
 }, 2000);
+
+// Funções chamadas
+
+window.onresize = ajustaTamanhoPalcoJogo();
