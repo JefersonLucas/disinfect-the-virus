@@ -10,6 +10,7 @@
 // Altura e largura do jogo
 
 let altura = largura = 0;
+let vidas = 1;
 
 let ajustaTamanhoPalcoJogo = function() {
 	altura = window.innerHeight;
@@ -23,7 +24,16 @@ function posicaoRandomica() {
 	// Remover o vírus anterior
 	
 	if(document.getElementById("virus")) {
+	
 		document.getElementById("virus").remove();
+
+		if (vidas > 3) {
+			alert("Game Over!")
+		}
+		else {
+			document.getElementById("v" + vidas).className = "far fa-heart fa-lg";
+			vidas++;
+		}
 	}
 
 	let posicaoX = Math.floor(Math.random() * largura) - 90;
@@ -43,6 +53,10 @@ function posicaoRandomica() {
 	virus.style.top = `${posicaoY}px`;
 	virus.style.position = "absolute";
 	virus.id = "virus";
+
+	virus.onclick = function() {
+		this.remove();
+	}
 
 	document.body.appendChild(virus);
 }
@@ -103,4 +117,4 @@ window.onresize = ajustaTamanhoPalcoJogo();
 
 setInterval(function() {
 	posicaoRandomica();
-}, 1000);
+}, 2000);
