@@ -33,3 +33,11 @@ for (let i = 0; i < 15; i++) {
 
 	ulCirculos.appendChild(li);	
 }
+
+// Redirecionamento
+
+let reiniciar = document.getElementById("reiniciar")
+
+reiniciar.onclick = function() {
+	window.location.href = "index.html";
+}

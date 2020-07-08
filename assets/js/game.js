@@ -28,7 +28,7 @@ function posicaoRandomica() {
 		document.getElementById("virus").remove();
 
 		if (vidas > 3) {
-			alert("Game Over!")
+			window.location.href = "game-over.html";
 		}
 		else {
 			document.getElementById("v" + vidas).className = "far fa-heart fa-lg";
