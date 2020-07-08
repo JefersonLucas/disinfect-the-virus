@@ -24,6 +24,14 @@ body {
 	height: 100vh;
 }
 
+button,
+div,
+img,
+select,
+option {
+	z-index: 9;
+}
+
 /* Painel do jogo */
 
 .painel {
@@ -102,6 +110,7 @@ body {
 	position: absolute;
 	width: 40px;
 	height: 40px;
+	z-index: 0;
 }
 @keyframes circulo {
 	0% {

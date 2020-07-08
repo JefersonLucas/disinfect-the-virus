@@ -36,8 +36,6 @@ for (let i = 0; i < 15; i++) {
 
 // Redirecionamento
 
-let reiniciar = document.getElementById("reiniciar")
-
-reiniciar.onclick = function() {
+document.getElementById("reiniciar").onclick = function() {
 	window.location.href = "index.html";
 }

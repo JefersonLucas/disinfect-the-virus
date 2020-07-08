@@ -12,7 +12,10 @@
 </p>
 
 <p align="center">
-	<img src="assets/img/capture.png" alt="Game">
+	<img src="assets/img/capture-01.png" alt="Index">
+	<img src="assets/img/capture-02.png" alt="Game">
+	<img src="assets/img/capture-03.png" alt="Game over">
+	<img src="assets/img/capture-04.png" alt="You win">
 </p>
 
 ## Traduções :triangular_flag_on_post:
