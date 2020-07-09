@@ -21,12 +21,15 @@ nivel = nivel === "" ? window.location.href = "index.html" : nivel.replace("?" ,
 
 if (nivel === "normal") {
 	tempoVirus = 1500;
+	nivel = "no";
 }
 else if (nivel === "dificil") {
 	tempoVirus = 1000;
+	nivel = "di";
 }
 else if (nivel === "impossivel") {
 	tempoVirus = 750;
+	nivel = "im";
 }
 
 // Altura e largura do jogo
@@ -54,7 +57,7 @@ function posicaoAleatoria() {
 		document.getElementById("virus").remove();
 
 		if (vidas > 3) {
-			window.location.href = "game-over.html?"+nivel+"&"+pontos;
+			window.location.href = "game-over.html?" + nivel + "&" + pontos;
 		}
 		else {
 			document.getElementById("v" + vidas).className = "coracao far fa-heart fa-lg";
@@ -146,7 +149,7 @@ var cronometro = setInterval(function() {
 	if (tempo < 0) {
 		clearInterval(cronometro);
 		clearInterval(criaVirus);
-		window.location.href = "you-win.html";
+		window.location.href = "you-win.html?" + nivel + "&" + pontos;
 	}
 	else {
 		if (tempo < 10) {
@@ -164,6 +167,8 @@ var cronometro = setInterval(function() {
 
 // Intervalo de tempo para a chamada da função
 
-var criaVirus = setInterval(function() {
-	posicaoAleatoria();
-}, tempoVirus);
+var criaVirus = setInterval(
+	function() {
+		posicaoAleatoria();
+	},
+tempoVirus);

@@ -10,11 +10,11 @@
 // Inicia o Jogo
 
 function iniciarJogo() {
-	var nivel = document.getElementById("nivel").value
+	var nivel = document.getElementById("nivel").value;
 
 	if (nivel === "") {
-		alert("Selecione um ítem da lista.")
-		return false
+		alert("Selecione um ítem da lista.");
+		return false;
 	}
 	else {
 		window.location.href = "game.html?" + nivel;

@@ -7,11 +7,31 @@
  *
  */
 
-// Recupera e estabelece o nível do jogo
+// Recupera o resultado do jogo e mostra para o jogador
 
-pontos = window.location.search;
+let resultado = window.location.search;
 
-pontos = pontos === "" ? window.location.href = "index.html" : pontos.replace("?" , "");
+if(resultado === "") {
+	window.location.href = "index.html";
+}
+else {
+	resultado.replace("?" , "");
+
+	let nivel = resultado.substr(1,2);
+	const pontos = resultado.substr(4,2);
+
+	if (nivel === "no") {
+		nivel = "Normal";
+	}
+	else if (nivel === "di") {
+		nivel = "Difícil";
+	}
+	else if (nivel === "im") {
+		nivel = "Impossível";
+	}
+
+	confirm("Seu resultado\nDificuldade: " + nivel +"\nPotuação: " + pontos);
+}
 
 // Redirecionamento
 
