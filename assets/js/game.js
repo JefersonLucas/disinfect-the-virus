@@ -7,11 +7,30 @@
  *
  */
 
-// Altura e largura do jogo
+// Variáveis globais
 
 let altura = largura = 0;
 let vidas = 1;
 let tempo = 30;
+let tempoVirus = 1500;
+
+// Recuperar e estabelece o nível do jogo
+
+let nivel = window.location.search;
+
+nivel = nivel === "" ? window.location.href = "index.html" : nivel.replace("?" , "");
+
+if (nivel === "normal") {
+	tempoVirus = 1500;
+}
+else if (nivel === "dificil") {
+	tempoVirus = 1000;
+}
+else if (nivel === "impossivel") {
+	tempoVirus = 750;
+}
+
+// Altura e largura do jogo
 
 let ajustaTamanhoPalcoJogo = function() {
 	altura = window.innerHeight;
@@ -132,7 +151,7 @@ var cronometro = setInterval(function() {
 
 var criaVirus = setInterval(function() {
 	posicaoRandomica();
-}, 2000);
+}, tempoVirus);
 
 // Funções chamadas
 

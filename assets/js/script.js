@@ -34,8 +34,26 @@ for (let i = 0; i < 15; i++) {
 	ulCirculos.appendChild(li);	
 }
 
+function iniciarJogo() {
+	var nivel = document.getElementById("nivel").value
+
+	if (nivel === "") {
+		alert("Selecione um ítem da lista.")
+		return false
+	}
+	else {
+		window.location.href = "game.html?" + nivel;
+	}
+}
+    
+
 // Redirecionamento
 
-document.getElementById("reiniciar").onclick = function() {
+var reiniciar = document.getElementById("reiniciar");
+
+if (reiniciar) {
+	document.getElementById("reiniciar").onclick = function() {
 	window.location.href = "index.html";
+	}
 }
+
