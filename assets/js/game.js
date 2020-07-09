@@ -9,15 +9,13 @@
 
 // Variáveis globais
 
-let altura = largura = 0;
+let altura = largura = pontos = 0;
 let vidas = 1;
 let tempo = 30;
 let tempoVirus = 1500;
-let pontos = 0;
-
-// Recuperar e estabelece o nível do jogo
-
 let nivel = window.location.search;
+
+// Recupera e estabelece o nível do jogo
 
 nivel = nivel === "" ? window.location.href = "index.html" : nivel.replace("?" , "");
 
@@ -33,14 +31,21 @@ else if (nivel === "impossivel") {
 
 // Altura e largura do jogo
 
-let ajustaTamanhoPalcoJogo = function() {
+let ajustaTamanhoPalco = function() {
 	altura = window.innerHeight;
 	largura = window.innerWidth;
 }
 
-// Posição randômica
+window.onresize = ajustaTamanhoPalco();
 
-function posicaoRandomica() {
+// Posição aleatória
+
+function valorAleatorio(valor) {
+	let aleatorio = Math.floor(Math.random() * valor);
+	return aleatorio;
+}
+
+function posicaoAleatoria() {
 
 	// Remover o vírus anterior
 	
@@ -49,7 +54,7 @@ function posicaoRandomica() {
 		document.getElementById("virus").remove();
 
 		if (vidas > 3) {
-			window.location.href = "game-over.html";
+			window.location.href = "game-over.html?"+nivel+"&"+pontos;
 		}
 		else {
 			document.getElementById("v" + vidas).className = "coracao far fa-heart fa-lg";
@@ -57,8 +62,8 @@ function posicaoRandomica() {
 		}
 	}
 
-	let posicaoX = Math.floor(Math.random() * largura) - 90;
-	let posicaoY = Math.floor(Math.random() * altura) - 90;
+	let posicaoX = valorAleatorio(largura) - 90;
+	let posicaoY = valorAleatorio(altura) - 90;
 
 	// Posição do vírus não sumir no browser
 
@@ -68,22 +73,22 @@ function posicaoRandomica() {
 	// Criando elementos HTML
 
 	const virus = document.createElement("img");
+	const classe = tamanhoAleatorio() +" "+ ladoAleatorio()
 	virus.src = virusAleatorio();
-	virus.className = tamanhoAleatorio() +" "+ ladoAleatorio();
+	virus.className = classe;
 	virus.style.left = `${posicaoX}px`;
 	virus.style.top = `${posicaoY}px`;
 	virus.style.position = "absolute";
 	virus.id = "virus";
 
 	virus.onclick = function() {
-		this.remove();
-		pontos++;
-		
-		pontos = pontos < 10 ? pontos = "0"+pontos : pontos;
-		
-		document.getElementById("pontos").innerHTML = pontos;
-	}
 
+		pontos++;
+		pontos = pontos < 10 ? pontos = "0"+pontos : pontos;
+		document.getElementById("pontos").innerHTML = pontos;
+		
+		document.getElementById("virus").remove();
+	}
 	document.body.appendChild(virus);
 }
 
@@ -91,9 +96,9 @@ function posicaoRandomica() {
 
 function tamanhoAleatorio() {
 
-	var classe = Math.floor(Math.random() * 3)
+	let tamanho = valorAleatorio(3);
 
-	switch(classe){
+	switch(tamanho){
 		case 0:
 			return "tamanho-1";
 		case 1:
@@ -107,9 +112,9 @@ function tamanhoAleatorio() {
 
 function ladoAleatorio() {
 
-	var classe = Math.floor(Math.random() * 2)
+	let lado = valorAleatorio(2);
 
-	switch(classe) {
+	switch(lado) {
 		case 0:
 			return "lado-A";
 		case 1:
@@ -121,9 +126,9 @@ function ladoAleatorio() {
 
 function virusAleatorio() {	
 
-	var virus = Math.floor(Math.random() * 4)
+	let virus = valorAleatorio(4);
 
-		switch(virus){
+	switch(virus){
 		case 0:
 			return "assets/img/virus-01.png";
 		case 1:
@@ -146,7 +151,11 @@ var cronometro = setInterval(function() {
 	else {
 		if (tempo < 10) {
 			tempo = "0"+tempo;
-			document.getElementById("cronometro").style.color = "#f44336";
+			let estiloCronometro = document.getElementById("cronometro");
+			estiloCronometro.style.color = "#f44336";
+			estiloCronometro.style.animationName = "piscar";
+			estiloCronometro.style.animationDuration = "1s";
+			estiloCronometro.style.animationIterationCount = "infinite";	
 		}
 		document.getElementById("tempo").innerHTML = tempo;
 	}
@@ -156,9 +165,5 @@ var cronometro = setInterval(function() {
 // Intervalo de tempo para a chamada da função
 
 var criaVirus = setInterval(function() {
-	posicaoRandomica();
+	posicaoAleatoria();
 }, tempoVirus);
-
-// Funções chamadas
-
-window.onresize = ajustaTamanhoPalcoJogo();

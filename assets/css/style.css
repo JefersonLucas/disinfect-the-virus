@@ -69,6 +69,10 @@ option {
 	float: right;
 	color: #343a40;
 }
+.coracao {
+	animation: piscar 2.5s infinite;
+	color: #f44336;
+}
 .cronometro {
 	color: #343a40;
 	margin-top: 33px; 
@@ -82,7 +86,7 @@ option {
 .tamanho-1,
 .tamanho-2,
 .tamanho-3 {
-	animation: virus .5s;
+	animation: aparece .5s;
 	z-index: 10;
 }
 .tamanho-1:hover,
@@ -111,14 +115,6 @@ option {
 .lado-B {
 	transform: scaleX(-1);
 }
-@keyframes virus {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
 
 /* Círculos Animados */
 
@@ -133,6 +129,9 @@ option {
 	height: 40px;
 	z-index: 0;
 }
+
+/* Animações */
+
 @keyframes circulo {
 	0% {
 		opacity: 0;
@@ -146,21 +145,22 @@ option {
 		transform: translateY(-1000px);
 	}
 }
-
-/* Crônometro */
-
-.coracao {
-	color: #f44336;
-}
-.cronometro {
-	animation: cronometro 1s infinite;
-}
-
-@keyframes cronometro {
-	0% {
-	opacity: 0;
-	}
+@keyframes piscar {
+	0%,
+	50%,
 	100% {
+		opacity: 0;
+	}
+	25%,
+	75% {
+		opacity: 1;
+	}
+}
+@keyframes aparece {
+	from {
+		opacity: 0;
+	}
+	to {
 		opacity: 1;
 	}
 }
