@@ -26,7 +26,6 @@ body {
 	width: 100%;
 	height: 100vh;
 }
-
 button,
 div,
 img,
@@ -41,27 +40,41 @@ option {
 	background-color: rgba(255,255,255,0.3);
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
-	bottom: auto;
 	position: absolute;
-	left: auto;
 	opacity: 0.8;
-	right: auto;
 	top: 0;
 	width: 170px;
+	height: 65px;
 }
 .vidas, 
+.pontos,
 .cronometro {
 	align-items: center;
 	display: flex;
 	justify-content: center;
-	margin-bottom: 5px;
-	margin-top: 5px;
-	position: relative;
+	position: relative;	
+}
+.vidas, 
+.pontos {
+	border-bottom: 1px solid #157a5d;
+	margin-top: 5px;	
+}
+.vidas {
+	border-right: 1px solid #157a5d;
+	width: 100px;
+	float: left;
+}
+.pontos {
+	width: 70px;
+	float: right;
+	color: #343a40;
 }
 .cronometro {
+	color: #343a40;
+	margin-top: 33px; 
+	width: 170px;
 	font-family: Helvetica;
 	font-size: 20px;
-	font-weight: bold;
 }
 
 /* Tamanho aleatório */
@@ -135,6 +148,7 @@ option {
 }
 
 /* Crônometro */
+
 .coracao {
 	color: #f44336;
 }

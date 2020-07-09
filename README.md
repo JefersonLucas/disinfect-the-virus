@@ -14,8 +14,6 @@
 <p align="center">
 	<img src="assets/img/capture-01.png" alt="Index">
 	<img src="assets/img/capture-02.png" alt="Game">
-	<img src="assets/img/capture-03.png" alt="Game over">
-	<img src="assets/img/capture-04.png" alt="You win">
 </p>
 
 ## Traduções :triangular_flag_on_post:
@@ -88,6 +86,8 @@ Veja também a lista de [contribuidores](https://github.com/JefersonLucas/disinf
 Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.md](https://github.com/JefersonLucas/disinfect-the-virus/blob/master/LICENSE) para obter detalhes.
 
 ## Agradecimentos :clap:
+
+Meus sinceros agradecimentos:
 
 * Primeiramente a Deus. 
 * Meus sinceros agradecimentos a todos que visitam o projeto e deixa uma estrela como reconhecimento.

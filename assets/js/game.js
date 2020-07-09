@@ -13,6 +13,7 @@ let altura = largura = 0;
 let vidas = 1;
 let tempo = 30;
 let tempoVirus = 1500;
+let pontos = 0;
 
 // Recuperar e estabelece o nível do jogo
 
@@ -67,7 +68,7 @@ function posicaoRandomica() {
 	// Criando elementos HTML
 
 	const virus = document.createElement("img");
-	virus.src = VirusAleatorio();
+	virus.src = virusAleatorio();
 	virus.className = tamanhoAleatorio() +" "+ ladoAleatorio();
 	virus.style.left = `${posicaoX}px`;
 	virus.style.top = `${posicaoY}px`;
@@ -76,6 +77,11 @@ function posicaoRandomica() {
 
 	virus.onclick = function() {
 		this.remove();
+		pontos++;
+		
+		pontos = pontos < 10 ? pontos = "0"+pontos : pontos;
+		
+		document.getElementById("pontos").innerHTML = pontos;
 	}
 
 	document.body.appendChild(virus);
@@ -113,7 +119,7 @@ function ladoAleatorio() {
 
 // Vírus aleatório
 
-function VirusAleatorio() {	
+function virusAleatorio() {	
 
 	var virus = Math.floor(Math.random() * 4)
 
